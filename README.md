@@ -1,7 +1,7 @@
 # heu-api
 api rest fo rheu project
 
-Create `config.json` file with your key for google speech api :
+Create `config.json` file with your key for use google speech api :
 
 Example : 
 ```
