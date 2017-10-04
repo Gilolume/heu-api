@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -75,9 +74,19 @@ func test(w http.ResponseWriter, r *http.Request) {
 		},
 	})
 	// Print the results.
+	var words []string
 	for _, result := range resp.Results {
 		for _, alt := range result.Alternatives {
-			fmt.Printf("\"%v\" (confidence=%3f)\n", alt.Transcript, alt.Confidence)
+			//fmt.Printf("\"%v\" (confidence=%3f)\n", alt.Transcript, alt.Confidence)
+			words = append(words, alt.Transcript)
 		}
 	}
+	s := TestResponse{Success: 1, Data: words}
+	response, err := json.Marshal(s)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Write(response)
 }

@@ -11,4 +11,9 @@ type IndexResponse struct {
 	Message string `json:"message"`
 }
 
+type TestResponse struct {
+	Success int      `json:"success"`
+	Data    []string `json:"data"`
+}
+
 //--- Fin Struct Response
