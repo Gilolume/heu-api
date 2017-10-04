@@ -7,4 +7,4 @@ services:
       - ./config.json:/api/config.json
       - ./heu-api:/api/heu-api
     ports:
-      - 8080:8080/tcp
+      - 80:80/tcp

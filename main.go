@@ -2,19 +2,21 @@ package main
 
 import (
 	"encoding/json"
-	"net/http"
+	"log"
+        "net/http"
 
 	"github.com/gorilla/mux"
 )
 
 func main() {
-	readConfigFile(configFile)
+	log.Println("Starting heu-api")
+        readConfigFile(configFile)
 	r := mux.NewRouter()
 
 	r.HandleFunc("/", index).Methods("GET", "POST")
 
 	http.Handle("/", r)
-	http.ListenAndServe(":8080", r)
+	http.ListenAndServe(":80", r)
 
 }
 
