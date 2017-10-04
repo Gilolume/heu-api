@@ -14,3 +14,8 @@ Example :
     "google_speech_key": "xxxxx"
 }
 ```
+
+Start heu-api :
+```sh
+docker-compose up -d
+```
