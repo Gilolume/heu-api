@@ -4,6 +4,7 @@ services:
     image: heu/api
     container_name: heu-api
     volumes:
+      - ./Training-dbe027b21f4a.json:/api/Training-dbe027b21f4a.json
       - ./config.json:/api/config.json
       - ./heu-api:/api/heu-api
     ports:
